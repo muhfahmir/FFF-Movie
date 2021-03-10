@@ -310,7 +310,6 @@ async function changeContent(curr = 1) {
 async function changeMovies(curr = 1) {
   currentPage = curr;
   searchInput.value = "";
-  footerNone();
   loading();
   const urlSearch = `${mainUrl}trending/movie/week`;
   let results = await fetch(`${urlSearch}?api_key=${apiKey}&page=${curr}`)
@@ -388,7 +387,6 @@ async function changeMovies(curr = 1) {
       </nav>
   </div>`;
   bodyBanner.innerHTML = myContentCard;
-  footerNone();
 }
 
 function prevPage() {
@@ -806,7 +804,7 @@ function updateMovie(moviesCards, moviesTrend) {
           <div
               class="card-header d-flex justify-content-between align-content-center align-items-center bg-transparent">
               <h3 class="content-title">New Movies</h3>
-              <a  class="my-link" id="all-movies">Explore All</a>
+              <a  class="my-link" id="all-movies" onclick="changeMovies()">Explore All</a>
           </div>
           <div class="card-body pl-3 pt-0">
               <div class="row my__contentCard scrolling-wrapper-flexbox">
